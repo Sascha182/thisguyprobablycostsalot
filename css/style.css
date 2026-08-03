@@ -1,0 +1,170 @@
+/* ============================================================
+   thisguyprobablycostsalot — portfolio
+   Fonts: PT Serif (all copy) · Montserrat (menu + close button)
+   ============================================================ */
+
+:root{
+  --bg:#f6ddd8;          /* soft blush pink */
+  --fg:#111111;
+  --hover:#ffffff;
+  --muted:#8a867c;
+  --maxw:1040px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:'PT Serif',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.35;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+::selection{background:#111;color:#fff;}
+
+/* ---------- CORNER NAV (Montserrat, original size) ---------- */
+.corner{
+  position:fixed;z-index:500;
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:24px 30px;transition:opacity .25s;
+}
+.corner:hover{opacity:.5;}
+.corner.active{text-decoration:underline;text-underline-offset:5px;}
+.tl{top:0;left:0;} .tr{top:0;right:0;} .bl{bottom:0;left:0;} .br{bottom:0;right:0;}
+
+/* ---------- CENTRE STAGE ---------- */
+.stage{max-width:var(--maxw);margin:0 auto;padding:16vh 6vw 20vh;}
+
+.hero-img{max-width:440px;margin:6vh auto 10px;}
+.hero-img img{width:100%;border-radius:2px;}
+.hero-cap{text-align:center;font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:12vh;}
+
+/* read-time / intro micro-line above the big copy */
+.read-line{
+  font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:.8rem;letter-spacing:.06em;color:var(--muted);
+  margin-bottom:2.2em;line-height:1.5;
+}
+.read-line a{text-decoration:underline;text-underline-offset:3px;color:var(--fg);}
+.read-line a:hover{opacity:.55;}
+
+/* big scrollable copy — in-between size */
+.copy{font-weight:400;font-size:clamp(2.25rem,4.35vw,3.5rem);line-height:1.32;letter-spacing:-.01em;overflow-wrap:break-word;}
+.copy p{margin:0 0 1.1em;}
+.copy em{font-style:italic;}
+.copy s{opacity:.55;}
+
+/* ---------- CLICKABLE / HOVER WORDS ---------- */
+.w{
+  position:relative;display:inline;cursor:pointer;
+  color:var(--fg);transition:color .2s ease;
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;
+  text-decoration-color:rgba(17,17,17,.28);
+}
+.w:hover{color:var(--hover);text-decoration-color:transparent;}
+.w .thumb{
+  position:fixed;top:0;left:0;
+  width:min(39vw,460px);height:auto;
+  opacity:0;transform:translate(-50%,-50%) scale(.94);
+  transition:opacity .3s ease,transform .45s cubic-bezier(.16,1,.3,1);
+  pointer-events:none;z-index:-1;border-radius:3px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.w:hover .thumb{opacity:1;transform:translate(-50%,-50%) scale(1);}
+
+.contact-link{text-decoration:underline;text-underline-offset:4px;font-weight:700;}
+.contact-link:hover{opacity:.55;}
+
+/* ---------- K-POP REMIX video (end of copy) ---------- */
+.kpop{max-width:var(--maxw);margin:12vh auto 0;padding:0 6vw;scroll-margin-top:10vh;}
+.kpop .kpop-title{
+  font-weight:700;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.25;
+  margin-bottom:20px;letter-spacing:-.01em;
+}
+.kpop .kpop-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;}
+.kpop .kpop-frame iframe{width:100%;height:100%;border:0;}
+
+/* end-of-page gif on WORK */
+.end-gif{width:230px;margin:0 auto 14vh;}
+.end-gif img{width:230px;height:auto;display:block;}
+
+/* ---------- LOGO GRIDS ---------- */
+.logo-block{max-width:var(--maxw);margin:0 auto;padding:0 6vw;}
+.logo-block.first{margin-top:6em;}
+.logo-block.second{margin-top:6em;margin-bottom:12vh;}
+.logo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:center;}
+.logo-grid img{width:100%;height:auto;transition:transform .3s;}
+.logo-grid img:hover{transform:scale(1.05);}
+
+/* ---------- VIDEO POPUP / LIGHTBOX ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.92);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s;
+}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox .frame{position:relative;width:min(94vw,166vh);aspect-ratio:16/9;max-height:88vh;}
+.lightbox .slot{position:absolute;inset:0;}
+.lightbox iframe{width:100%;height:100%;border:0;border-radius:4px;background:#000;display:block;}
+.lightbox .close{
+  position:fixed;top:18px;right:22px;z-index:1010;
+  background:none;border:none;color:#fff;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:1rem;letter-spacing:.15em;text-transform:uppercase;padding:8px 4px;
+}
+.lightbox .close:hover{opacity:.6;}
+
+/* ---------- ABOUT / DIRECTING shared ---------- */
+.page{max-width:var(--maxw);margin:0 auto;padding:16vh 6vw 18vh;}
+.page .portrait{max-width:440px;margin:0 auto 10px;}
+.page .portrait img{width:100%;border-radius:2px;}
+.page .sub{text-align:center;font-size:.82rem;color:var(--muted);margin-bottom:10vh;}
+.page .prose{font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.34;letter-spacing:-.01em;}
+.page .prose p{margin:0 0 1.2em;}
+
+/* family photo — locked to native 225px, never upscaled */
+.family-img{width:225px;max-width:60vw;margin:6vh auto 0;}
+.family-img img{width:100%;height:auto;border-radius:2px;}
+
+/* mini CV */
+.cv{max-width:var(--maxw);margin:12vh auto 0;padding:0 6vw;}
+.cv .cv-list{font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.6;}
+.cv .cv-row{padding:14px 0;border-bottom:1px solid rgba(17,17,17,.14);display:grid;grid-template-columns:150px 1fr;gap:20px;}
+.cv .cv-row .yr{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.04em;padding-top:2px;}
+.cv .linkedin{display:inline-block;margin-top:40px;font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px;}
+.cv .linkedin:hover{opacity:.55;}
+
+/* directing videos */
+.films{display:flex;flex-direction:column;gap:8vh;margin-top:10vh;}
+.film{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;}
+.film iframe{width:100%;height:100%;border:0;}
+
+/* ---------- CONTACT ---------- */
+.contact-wrap{max-width:760px;margin:0 auto;}
+
+/* ---------- MOBILE ---------- */
+@media (max-width:760px){
+  .corner{font-size:.62rem;letter-spacing:.06em;padding:14px 16px;background:var(--bg);}
+  .stage{padding:12vh 7vw 16vh;}
+  .copy{font-size:clamp(1.6rem,6.4vw,2.2rem);line-height:1.4;}
+  .read-line{font-size:.72rem;}
+  .hero-img{max-width:78vw;}
+  .page{padding:12vh 7vw 16vh;}
+  .page .prose{font-size:clamp(1.5rem,6vw,2rem);}
+  .page .portrait{max-width:78vw;}
+  .cv .cv-row{grid-template-columns:1fr;gap:2px;}
+  .logo-grid{grid-template-columns:repeat(3,1fr);gap:16px;}
+  .w .thumb{display:none;}
+  .w{color:var(--fg);text-decoration-color:rgba(17,17,17,.5);}
+  .lightbox .frame{width:96vw;max-height:70vh;}
+  .lightbox .close{top:12px;right:14px;font-size:.85rem;}
+}
+@media (hover:none){
+  .w .thumb{display:none;}
+  .w:hover{color:var(--fg);}
+}
